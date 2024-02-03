@@ -47,6 +47,11 @@ public class CaAssignment {
                 else{System.out.println("classes number out or range");
                 break;
                 }
+                line = sc.nextLine();
+                if (line.length() < 6) {
+                    System.out.println("The ID should be a minimum of 6 characters");
+                    break;
+                }
 
             }
             
