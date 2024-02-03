@@ -26,10 +26,13 @@ public class CaAssignment {
             while (sc.hasNextLine()) {
             
             line = sc.nextLine();
-                name = line.split(" ");
-            
-            
-            
+            name = line.split(" ");
+                System.out.println(name[0]);
+            if (!name[0].matches("[a-zA-Z]+")) {
+                    System.out.println("Invalid name, it contains a number: " + name[0]);
+                    break;
+                } 
+
             }
             
             
