@@ -23,35 +23,56 @@ public class CaAssignment {
             String line;
             String[]name;
             Scanner sc = new Scanner(new File(path));
-            while (sc.hasNextLine()) {
             
+            while (sc.hasNextLine()) {
+            String ID="";
             line = sc.nextLine();
             name = line.split(" ");
-                System.out.println(name[0]);
-            if (!name[0].matches("[a-zA-Z]+")) {
+                //System.out.println(name[0]);
+            if (!name[0].matches("[a-zA-Z]*")) {
                     System.out.println("Invalid name, it contains a number: " + name[0]);
                     break;
                 } 
-            line = sc.nextLine();
+                line=sc.nextLine();
+                //System.out.println(line);
                 int classNum = Integer.parseInt(line);
+                //System.out.println(classNum);
                 String classLoad;
                 if (classNum == 1) {
-                    classLoad="Very light";      
-                } else if (classNum == 2) {
+                    classLoad="Very light"; 
+                    System.out.println(classLoad);
+                }
+                else if (classNum == 2) {
                     classLoad="light";
+                    System.out.println(classLoad);
                 } else if (classNum > 2 && classNum < 6) {
                     classLoad="Parttime";
+                    System.out.println(classLoad);
                 } else if (classNum >= 6 && classNum <= 8) {
                     classLoad="Fulltime";
+                    System.out.println(classLoad);
                 }
                 else{System.out.println("classes number out or range");
                 break;
                 }
-                line = sc.nextLine();
+                line=sc.nextLine();
                 if (line.length() < 6) {
                     System.out.println("The ID should be a minimum of 6 characters");
                     break;
                 }
+            
+           String validInput = line.substring(0, 2);
+                //System.out.println(validInput);
+                int checkNumber=Integer.parseInt(line.substring(0, 2));
+                //System.out.println(checkNumber);
+
+                if (validInput.matches("\\d\\d")&&checkNumber>=20) {
+                   // System.out.println("First 2 chars are numbers");
+                  ID=ID+validInput;
+                    System.out.println(ID);
+                }
+                
+            
 
             }
             
