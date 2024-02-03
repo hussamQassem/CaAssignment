@@ -5,13 +5,25 @@
 
 package com.mycompany.caassignment;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
- * @author hussa
+ * @author hussam
  */
 public class CaAssignment {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        String path = "E:\\CCT COLLEGE\\javaTerm2\\code\\Students.txt";
+        try {
+            Scanner sc = new Scanner(new File(path));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
