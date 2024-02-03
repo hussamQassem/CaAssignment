@@ -24,35 +24,30 @@ public class CaAssignment {
             String[]name;
              String studentDetail="";
              String status="";
+             int checkNumber=0;
             Scanner sc = new Scanner(new File(path));
             
             while (sc.hasNextLine()) {
             String ID="";
             line = sc.nextLine();
             name = line.split(" ");
-                //System.out.println(name[0]);
+            
             if (!name[0].matches("[a-zA-Z]*")) {
                     System.out.println("Invalid name, it contains a number: " + name[0]);
                     break;
                 } 
                 line=sc.nextLine();
-                //System.out.println(line);
                 int classNum = Integer.parseInt(line);
-                //System.out.println(classNum);
                 String classLoad;
                 if (classNum == 1) {
-                    classLoad="Very light"; 
-                   // System.out.println(classLoad);
+                    classLoad="Very light";
                 }
                 else if (classNum == 2) {
                     classLoad="light";
-                   // System.out.println(classLoad);
                 } else if (classNum > 2 && classNum < 6) {
                     classLoad="Parttime";
-                   // System.out.println(classLoad);
                 } else if (classNum >= 6 && classNum <= 8) {
                     classLoad="Fulltime";
-                   // System.out.println(classLoad);
                 }
                 else{System.out.println("classes number out or range");
                 break;
@@ -62,24 +57,24 @@ public class CaAssignment {
                     System.out.println("The ID should be a minimum of 6 characters");
                     break;
                 }
-            
-           String validInput = line.substring(0, 2);
-                //System.out.println(validInput);
-                int checkNumber=Integer.parseInt(line.substring(0, 2));
-                //System.out.println(checkNumber);
+                String validInput = line.substring(0, 2);
 
-                if (validInput.matches("\\d\\d")&&checkNumber>=20) {
-                   // System.out.println("First 2 chars are numbers");
-                  ID=ID+validInput;
-                   // System.out.println(ID);
+                if(validInput.matches("\\d\\d")){
+                checkNumber=Integer.parseInt(line.substring(0, 2));
+                }else{
+                    System.out.println("first two characters must be numbers");
+                    break;
                 }
-                else{System.out.println("first two characters must be numbers and bigger than 19");
+                if (validInput.matches("\\d\\d")&&checkNumber>=20) {
+                  ID=ID+validInput;
+                }
+                else{System.out.println("first two characters must be bigger than 19");
                 break;
                 }
                 validInput = line.substring(2, 4);
-                //System.out.println(validInput);
+               
                 if(validInput.matches("[a-zA-Z]+")){
-                   // System.out.println("Characters are letters");
+                 
                    ID=ID+validInput;
                 }
                 else{
@@ -87,23 +82,83 @@ public class CaAssignment {
                     break;
                 }
                 validInput = line.substring(6);
-                //System.out.println(validInput);
+               
                 if(validInput.matches("[0-9]+")){
-                    //System.out.println("the rest of the ID is numbers");
                     ID=ID+line.substring(4,5)+validInput;
                 }
                 else{System.out.println("there is letters in the last part");}
                 studentDetail=ID+"-"+name[1]+"\n"+classLoad;
-                System.out.println(studentDetail);
+               
               status=status+"\n"+studentDetail+"\n";
-                System.out.println("");
+                
                 if(sc.hasNextLine()){line =sc.nextLine();
                 }
+               
             
 
             }
+            Scanner scan=new Scanner(System.in);
             
+             System.out.println(status);
+
+
+             int option;
+             do{
+                System.out.println("menu:");
+                System.out.println("please chose if want to save data or insert manually:");
+                System.out.println("to save data perss 1:\nto insert manually press 2:\nto exit press 0:");
+                 
+                 option=scan.nextInt();
+             
+                 switch(option){
+                     case 1:
+                         System.out.println(" saving data");
+                         break;
+                     case 2:
+                         System.out.println(" insert data");
+                         break;
+                     case 3:
+                         System.out.println("exit");
+                        
+                     case 4:
+                         System.out.println("invalid input");
+                         break;
+                     
+                 }
+             }while(option!=0);
+             
+             
+                     
+                     
+                     
+                     
+                     
+                 
+             
+             
+             
+             
+            /*int chose=-1 ;
+            while(chose!=0){
+            Scanner scaner=new Scanner(System.in);
             
+                System.out.println("please chose if want to save data or insert manually");
+                System.out.println("perss\n 1- save data\n2- insert manually\n 0- exit");
+                scaner.nextLine();
+                if(chose==0){
+                    break;
+                
+                }else if(chose==1){
+                    System.out.println("saving data");
+                }
+                else if(chose==2){
+                    scaner.nextLine();
+                }
+                else{
+                    System.out.println("invalid insert");
+                }
+            }*/
+             
             
             
             
