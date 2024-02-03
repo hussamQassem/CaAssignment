@@ -20,7 +20,23 @@ public class CaAssignment {
     public static void main(String[] args) {
         String path = "E:\\CCT COLLEGE\\javaTerm2\\code\\Students.txt";
         try {
+            String line;
+            String[]name;
             Scanner sc = new Scanner(new File(path));
+            while (sc.hasNextLine()) {
+            
+            line = sc.nextLine();
+                name = line.split(" ");
+            
+            
+            
+            }
+            
+            
+            
+            
+            
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
         }
