@@ -32,6 +32,21 @@ public class CaAssignment {
                     System.out.println("Invalid name, it contains a number: " + name[0]);
                     break;
                 } 
+            line = sc.nextLine();
+                int classNum = Integer.parseInt(line);
+                String classLoad;
+                if (classNum == 1) {
+                    classLoad="Very light";      
+                } else if (classNum == 2) {
+                    classLoad="light";
+                } else if (classNum > 2 && classNum < 6) {
+                    classLoad="Parttime";
+                } else if (classNum >= 6 && classNum <= 8) {
+                    classLoad="Fulltime";
+                }
+                else{System.out.println("classes number out or range");
+                break;
+                }
 
             }
             
