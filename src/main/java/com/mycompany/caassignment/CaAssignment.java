@@ -22,6 +22,8 @@ public class CaAssignment {
         try {
             String line;
             String[]name;
+             String studentDetail="";
+             String status="";
             Scanner sc = new Scanner(new File(path));
             
             while (sc.hasNextLine()) {
@@ -40,17 +42,17 @@ public class CaAssignment {
                 String classLoad;
                 if (classNum == 1) {
                     classLoad="Very light"; 
-                    System.out.println(classLoad);
+                   // System.out.println(classLoad);
                 }
                 else if (classNum == 2) {
                     classLoad="light";
-                    System.out.println(classLoad);
+                   // System.out.println(classLoad);
                 } else if (classNum > 2 && classNum < 6) {
                     classLoad="Parttime";
-                    System.out.println(classLoad);
+                   // System.out.println(classLoad);
                 } else if (classNum >= 6 && classNum <= 8) {
                     classLoad="Fulltime";
-                    System.out.println(classLoad);
+                   // System.out.println(classLoad);
                 }
                 else{System.out.println("classes number out or range");
                 break;
@@ -69,9 +71,34 @@ public class CaAssignment {
                 if (validInput.matches("\\d\\d")&&checkNumber>=20) {
                    // System.out.println("First 2 chars are numbers");
                   ID=ID+validInput;
-                    System.out.println(ID);
+                   // System.out.println(ID);
                 }
-                
+                else{System.out.println("first two characters must be numbers and bigger than 19");
+                break;
+                }
+                validInput = line.substring(2, 4);
+                //System.out.println(validInput);
+                if(validInput.matches("[a-zA-Z]+")){
+                   // System.out.println("Characters are letters");
+                   ID=ID+validInput;
+                }
+                else{
+                    System.out.println("the 3rd and 4th Characters must be letters");
+                    break;
+                }
+                validInput = line.substring(6);
+                //System.out.println(validInput);
+                if(validInput.matches("[0-9]+")){
+                    //System.out.println("the rest of the ID is numbers");
+                    ID=ID+line.substring(4,5)+validInput;
+                }
+                else{System.out.println("there is letters in the last part");}
+                studentDetail=ID+"-"+name[1]+"\n"+classLoad;
+                System.out.println(studentDetail);
+              status=status+"\n"+studentDetail+"\n";
+                System.out.println("");
+                if(sc.hasNextLine()){line =sc.nextLine();
+                }
             
 
             }
