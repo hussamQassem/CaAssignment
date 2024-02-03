@@ -5,8 +5,11 @@
 
 package com.mycompany.caassignment;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,13 +21,18 @@ import java.util.logging.Logger;
 public class CaAssignment {
 
     public static void main(String[] args) {
-        String path = "E:\\CCT COLLEGE\\javaTerm2\\code\\Students.txt";
-        try {
+        
+        
             String line;
             String[]name;
-             String studentDetail="";
-             String status="";
-             int checkNumber=0;
+            String studentDetail="";
+            String status="";
+            int checkNumber=0;
+           
+            
+        String path = "E:\\CCT COLLEGE\\javaTerm2\\code\\Students.txt";
+        try {
+
             Scanner sc = new Scanner(new File(path));
             
             while (sc.hasNextLine()) {
@@ -99,7 +107,8 @@ public class CaAssignment {
             }
             Scanner scan=new Scanner(System.in);
             
-             System.out.println(status);
+            // System.out.println(status);
+             
 
 
              int option;
@@ -109,57 +118,24 @@ public class CaAssignment {
                 System.out.println("to save data perss 1:\nto insert manually press 2:\nto exit press 0:");
                  
                  option=scan.nextInt();
+                switch (option) {
+                    case 1:
+                        System.out.println("saving data");
+                        writToFile(status);
+                        break;
+                    case 2:
+                        System.out.println("please insert data");
+                        break;
+                    case 0:
+                        System.out.println("exit");
+                        break;
+                    default:
+                        System.out.println("please insert valid option");
+                        break;
+                }
              
-                 switch(option){
-                     case 1:
-                         System.out.println(" saving data");
-                         break;
-                     case 2:
-                         System.out.println(" insert data");
-                         break;
-                     case 3:
-                         System.out.println("exit");
-                        
-                     case 4:
-                         System.out.println("invalid input");
-                         break;
-                     
-                 }
-             }while(option!=0);
-             
-             
-                     
-                     
-                     
-                     
-                     
                  
-             
-             
-             
-             
-            /*int chose=-1 ;
-            while(chose!=0){
-            Scanner scaner=new Scanner(System.in);
-            
-                System.out.println("please chose if want to save data or insert manually");
-                System.out.println("perss\n 1- save data\n2- insert manually\n 0- exit");
-                scaner.nextLine();
-                if(chose==0){
-                    break;
-                
-                }else if(chose==1){
-                    System.out.println("saving data");
-                }
-                else if(chose==2){
-                    scaner.nextLine();
-                }
-                else{
-                    System.out.println("invalid insert");
-                }
-            }*/
-             
-            
+             }while(option!=0);
             
             
             
@@ -167,5 +143,19 @@ public class CaAssignment {
             Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }// end of main
+    public static void writToFile(String status){
+    
+       // System.out.println(status);
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("status.txt"));
+            
+            bw.write(status);
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
 }
