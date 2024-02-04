@@ -21,8 +21,19 @@ import java.util.logging.Logger;
 public class CaAssignment {
 
     public static void main(String[] args) {
+        /* to run the code properly in the student file 
+        there should be an empty line between every student detailes
+        example:
+        Sam Weiss
+        5
+        22DIP112
+                    <--------this empty line is important
+        Steve Rodgers
+        7
+        20MSC191
+        */
         
-        
+        /*GITHUB LINK https://github.com/hussamQassem/CaAssignment.git*/
             String line;
             String[]name;
             String studentDetail="";
@@ -34,6 +45,10 @@ public class CaAssignment {
         try {
 
             Scanner sc = new Scanner(new File(path));
+            /* while loop that reading every line on the txt file and check first line for name surename
+            second line to check the classes attending and display a propper message
+            third line to check student id if meeting the equirements 
+            then skip empty line and continue to the second student*/
             
             while (sc.hasNextLine()) {
             String ID="";
@@ -108,12 +123,21 @@ public class CaAssignment {
                 studentDetail=ID+"-"+name[1]+"\n"+classLoad;
                
               status=status+"\n"+studentDetail+"\n";
-                
-                if(sc.hasNextLine()){line =sc.nextLine();
+           
+              if(sc.hasNextLine()){line =sc.nextLine();
                 }
+                
+                
+                
+                
             }
             System.out.println(status);
             Scanner scan=new Scanner(System.in);
+            /*
+            creating do while loop to run the menu at least onje time
+            this loop will give option to user to save data into file from student file or 
+            inset data from keyboard
+            */
             
              int option;
              do{
@@ -146,6 +170,8 @@ public class CaAssignment {
         }
         
     }// end of main
+    
+    // method that write the data into a status txt file if user choose to save data from student txt file
     public static void writToFile(String status){
     
        // System.out.println(status);
@@ -161,6 +187,10 @@ public class CaAssignment {
         }
     
     }//end of writToFile
+    /* method that displayed when user choose to inset data from keyboard
+    and validate the user input and save it into status file
+    
+    */
     public static void dataInput(){
     Scanner scan=new Scanner(System.in);
     String studentInput="";
@@ -262,6 +292,8 @@ public class CaAssignment {
         catch(NumberFormatException e){
             System.out.println("invalid inputs");
         }
+        //checking if the information from user is correct then save it
+        // otherwise it won't be saved
         if(inputValue==true){
             try {
                 FileWriter fw=new FileWriter("status.txt",true);
