@@ -102,6 +102,7 @@ public class CaAssignment {
                 if(sc.hasNextLine()){line =sc.nextLine();
                 }
             }
+            System.out.println(status);
             Scanner scan=new Scanner(System.in);
             
              int option;
@@ -127,12 +128,9 @@ public class CaAssignment {
                         System.out.println("please insert valid option");
                         break;
                 }
-             
-                 
+
              }while(option!=0);
-            
-            
-            
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -145,6 +143,7 @@ public class CaAssignment {
             BufferedWriter bw = new BufferedWriter(new FileWriter("status.txt"));
             
             bw.write(status);
+            bw.newLine();
             bw.close();
             
         } catch (IOException ex) {
@@ -248,9 +247,12 @@ public class CaAssignment {
         }
         if(inputValue==true){
             try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("status.txt"));
-            
+                FileWriter fw=new FileWriter("status.txt",true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.newLine();
             bw.write(studentInput);
+            bw.newLine();
+            
             bw.close();
             
         } catch (IOException ex) {
