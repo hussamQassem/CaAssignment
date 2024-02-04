@@ -1,12 +1,2 @@
-
-20DIP1233-wice
-Parttime
-
-20MSC914-Rodgers
-Fulltime
-
-23fr3543-qassem
+22seq746-zayton
 light
-
-24yjt44-delon
-Very light

@@ -154,6 +154,10 @@ public class CaAssignment {
     }//end of writToFile
     public static void dataInput(){
     Scanner scan=new Scanner(System.in);
+    String studentInput="";
+    boolean inputValue=false;
+    while(inputValue==false){
+        try{
         System.out.println("insert full name");
        String fullName =scan.nextLine();
         String[] name = fullName.split(" ");
@@ -203,7 +207,7 @@ public class CaAssignment {
                 }
                 int checkNumber=0;
                 String ID="";
-                String studentInput="";
+                
                 System.out.println(IdInput);
                 String validInput = IdInput.substring(0, 2);
 
@@ -236,12 +240,25 @@ public class CaAssignment {
                 }
                 studentInput=ID+"-"+name[1]+"\n"+classLoad;
                 System.out.println(studentInput);
-       
-    
-    
-    
-    
-    
-    
+                inputValue=true;
+                
+        }//end of try
+        catch(NumberFormatException e){
+            System.out.println("invalid inputs");
+        }
+        if(inputValue==true){
+            try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("status.txt"));
+            
+            bw.write(studentInput);
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        else{System.out.println("invalid student data wont be saved");}
+    }// end of while
+
     }//end of dataInput()
 }
