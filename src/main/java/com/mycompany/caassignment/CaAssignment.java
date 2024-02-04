@@ -89,12 +89,22 @@ public class CaAssignment {
                     System.out.println("the 3rd and 4th Characters must be letters");
                     break;
                 }
-                validInput = line.substring(6);
+                validInput = line.substring(5);
+                
                
                 if(validInput.matches("[0-9]+")){
-                    ID=ID+line.substring(4,5)+validInput;
+                    
                 }
-                else{System.out.println("there is letters in the last part");}
+                else{System.out.println("there is letters in the last part");
+                break;
+                }
+                int check=Integer.parseInt(validInput);
+                    if(check>=1&&check<=200){
+                    ID=ID+line.substring(4,5)+validInput;}
+                    else{
+                        System.out.println("the numbers should be between 1-200");
+                    break;
+                    }
                 studentDetail=ID+"-"+name[1]+"\n"+classLoad;
                
               status=status+"\n"+studentDetail+"\n";
@@ -236,7 +246,7 @@ public class CaAssignment {
                     System.out.println("the 3rd and 4th Characters must be letters");
                     break;
                 }
-                validInput = IdInput.substring(6);
+                validInput = IdInput.substring(5);
                
                 if(validInput.matches("[0-9]+")){
                     ID=ID+IdInput.substring(4,5)+validInput;
