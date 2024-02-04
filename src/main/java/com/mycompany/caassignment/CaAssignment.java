@@ -107,10 +107,6 @@ public class CaAssignment {
             }
             Scanner scan=new Scanner(System.in);
             
-            // System.out.println(status);
-             
-
-
              int option;
              do{
                 System.out.println("menu:");
@@ -124,7 +120,8 @@ public class CaAssignment {
                         writToFile(status);
                         break;
                     case 2:
-                        System.out.println("please insert data");
+                        dataInput();
+                        //System.out.println("please insert data");
                         break;
                     case 0:
                         System.out.println("exit");
@@ -157,5 +154,55 @@ public class CaAssignment {
             Logger.getLogger(CaAssignment.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-    }
+    }//end of writToFile
+    public static void dataInput(){
+    Scanner scan=new Scanner(System.in);
+        System.out.println("insert full name");
+       String fullName =scan.nextLine();
+        String[] name = fullName.split(" ");
+            
+            if (!name[0].matches("[a-zA-Z]*")) {
+                    System.out.println("Invalid name, it contains a number: " + name[0]);
+                    
+                }
+            
+            
+            int classNum =0;
+            String srtInput;
+            boolean value=false;
+            String classLoad;
+            
+                 while(value==false){
+                     System.out.println("how maney classes attended");
+                     srtInput=scan.nextLine();
+                     try{
+                    classNum= Integer.parseInt(srtInput);
+                    value=true;
+                     }catch(NumberFormatException e){
+                         System.out.println("please insert a valid number");
+                     }
+
+                 }// end of while
+                System.out.println(classNum);
+                if (classNum == 1) {
+                    classLoad="Very light";
+                }
+                else if (classNum == 2) {
+                    classLoad="light";
+                } else if (classNum > 2 && classNum < 6) {
+                    classLoad="Parttime";
+                } else if (classNum >= 6 && classNum <= 8) {
+                    classLoad="Fulltime";
+                }
+                else{System.out.println("classes number out or range");
+                }
+            
+       
+    
+    
+    
+    
+    
+    
+    }//end of dataInput()
 }
