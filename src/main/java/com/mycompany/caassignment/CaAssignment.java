@@ -163,7 +163,7 @@ public class CaAssignment {
             
             if (!name[0].matches("[a-zA-Z]*")) {
                     System.out.println("Invalid name, it contains a number: " + name[0]);
-                    
+                    break;
                 }
             
             int classNum =0;
@@ -194,6 +194,7 @@ public class CaAssignment {
                     classLoad="Fulltime";
                 }
                 else{System.out.println("classes number out or range");
+                break;
                 }
                 System.out.println("please insert student ID");
                 System.out.println("ID must be a minimum of 6 characters\nfirst two characters must be numbers");
@@ -202,6 +203,7 @@ public class CaAssignment {
                 String IdInput=scan.nextLine();
                 if (IdInput.length() < 6) {
                     System.out.println("The ID should be a minimum of 6 characters");
+                    break;
                     
                 }
                 int checkNumber=0;
@@ -212,14 +214,17 @@ public class CaAssignment {
 
                 if(validInput.matches("\\d\\d")){
                 checkNumber=Integer.parseInt(IdInput.substring(0, 2));
+                
                 }else{
                     System.out.println("first two characters must be numbers");
+                    break;
                     
                 }
                 if (validInput.matches("\\d\\d")&&checkNumber>=20) {
                  ID=ID+validInput;
                 }
                 else{System.out.println("first two characters must be bigger than 19");
+                break;
                 }
                 validInput = IdInput.substring(2, 4);
                
@@ -228,7 +233,8 @@ public class CaAssignment {
                    ID=ID+validInput;
                 }
                 else{
-                    System.out.println("the 3rd and 4th Characters must be letters"); 
+                    System.out.println("the 3rd and 4th Characters must be letters");
+                    break;
                 }
                 validInput = IdInput.substring(6);
                
@@ -236,6 +242,7 @@ public class CaAssignment {
                     ID=ID+IdInput.substring(4,5)+validInput;
                 }
                 else{System.out.println("there is letters in the last part");
+                break;
                 }
                 studentInput=ID+"-"+name[1]+"\n"+classLoad;
                 System.out.println(studentInput);
